@@ -1,0 +1,13 @@
+.swipe-card {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease-out;
+}
+
+.swipe-left {
+  transform: translateX(-100%) rotate(-15deg);
+  opacity: 0;
+}
+
+.swipe-right {
+  transform: translateX(100%) rotate(15deg);
+  opacity: 0;
+}

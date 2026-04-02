@@ -1,0 +1,52 @@
+.mic-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mic-button {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  transition: all 0.3s ease;
+}
+
+.mic-container:hover .mic-button {
+  transform: scale(1.05);
+}
+
+.mic-outer-ring, .mic-inner-ring {
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid var(--accent-primary);
+  opacity: 0;
+}
+
+.listening .mic-outer-ring {
+  width: 150px;
+  height: 150px;
+  animation: ripple 2s infinite ease-out;
+}
+
+.listening .mic-inner-ring {
+  width: 110px;
+  height: 110px;
+  animation: ripple 2s infinite ease-out 0.5s;
+}
+
+@keyframes ripple {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+}
