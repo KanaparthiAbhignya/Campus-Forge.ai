@@ -133,3 +133,20 @@ a {
 .animate-fade-in {
   animation: fadeIn 0.5s ease forwards;
 }
+
+/* Results Grid - Symmetric 50/50 Layout */
+.results-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .results-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.full-width-panel {
+  grid-column: 1 / -1;
+}

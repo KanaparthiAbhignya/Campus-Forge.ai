@@ -259,17 +259,17 @@ export default function SkillGap() {
       </div>
 
       {analyzed && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }} className="animate-fade-in">
+        <div className="results-grid animate-fade-in">
           
           {results.error && (
-             <div className="glass-panel animate-fade-in" style={{ padding: '2.5rem', gridColumn: '1 / -1', marginBottom: '0.5rem', background: 'rgba(239, 68, 68, 0.1)', border: '1px solid var(--error)' }}>
+             <div className="glass-panel full-width-panel animate-fade-in" style={{ padding: '2.5rem', marginBottom: '0.5rem', background: 'rgba(239, 68, 68, 0.1)', border: '1px solid var(--error)' }}>
                <h2 style={{ color: 'var(--error)', marginBottom: '1rem' }}>Analysis Failed</h2>
                <p style={{ color: 'white', opacity: 0.8 }}>{results.error}</p>
              </div>
           )}
 
           {!results.error && results.mode === 'ai' && results.insight && (
-            <div className="glass-panel animate-fade-in" style={{ padding: '2.5rem', gridColumn: '1 / -1', marginBottom: '0.5rem', background: 'rgba(139, 92, 246, 0.1)', border: '1px solid var(--accent-primary)', position: 'relative', overflow: 'hidden' }}>
+            <div className="glass-panel full-width-panel animate-fade-in" style={{ padding: '2.5rem', marginBottom: '0.5rem', background: 'rgba(139, 92, 246, 0.1)', border: '1px solid var(--accent-primary)', position: 'relative', overflow: 'hidden' }}>
               <div style={{ position: 'absolute', top: '-20px', right: '-20px', opacity: 0.1, color: 'var(--accent-primary)' }}><Sparkles size={180} /></div>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.5rem', position: 'relative', zIndex: 1 }}>
                 <div style={{ padding: '1.2rem', background: 'var(--accent-gradient)', borderRadius: '50%', color: 'white', flexShrink: 0 }}>
@@ -337,7 +337,7 @@ export default function SkillGap() {
 
           {/* Learning Path */}
           {results.path.length > 0 && (
-            <div className="glass-panel" style={{ padding: '2.5rem', gridColumn: '1 / -1' }}>
+            <div className="glass-panel full-width-panel" style={{ padding: '2.5rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem', color: 'var(--accent-primary)' }}>
                 <GraduationCap size={32} />
                 <h2 style={{ margin: 0, color: 'var(--text-primary)', fontSize: '1.8rem' }}>Strategic Expansion Roadmap</h2>
