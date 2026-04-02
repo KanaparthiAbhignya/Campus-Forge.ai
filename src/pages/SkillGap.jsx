@@ -9,7 +9,7 @@ const careerRequirements = {
   'product manager': ['Agile/Scrum', 'Data Analysis', 'User Psychology', 'Roadmapping', 'A/B Testing', 'Stakeholder Management'],
 };
 
-const API_KEY = "AIzaSyCa8m8RzEH1XY7lH-AhGPNGZ8k6S2sgWK0";
+const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 
 export default function SkillGap() {
   const [inputMode, setInputMode] = useState('manual');
@@ -127,6 +127,10 @@ export default function SkillGap() {
           ]
         }
       `;
+
+      if (!API_KEY || API_KEY.includes('YOUR_NEW_API_KEY')) {
+        throw new Error("API Key Missing: Please add your VITE_GEMINI_API_KEY to the .env file globally.");
+      }
 
       const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${API_KEY}`, {
         method: "POST",
@@ -262,10 +266,22 @@ export default function SkillGap() {
         <div className="results-grid animate-fade-in">
           
           {results.error && (
-             <div className="glass-panel full-width-panel animate-fade-in" style={{ padding: '2.5rem', marginBottom: '0.5rem', background: 'rgba(239, 68, 68, 0.1)', border: '1px solid var(--error)' }}>
-               <h2 style={{ color: 'var(--error)', marginBottom: '1rem' }}>Analysis Failed</h2>
-               <p style={{ color: 'white', opacity: 0.8 }}>{results.error}</p>
-             </div>
+            <div className="glass-panel full-width-panel animate-fade-in" style={{ padding: '2.5rem', marginBottom: '1.5rem', background: 'rgba(239, 68, 68, 0.05)', border: '1px solid var(--error)', textAlign: 'center' }}>
+              <h2 style={{ color: 'white', marginBottom: '1rem', fontWeight: 700 }}>Analysis Offline</h2>
+              <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: '1.1rem' }}>{results.error}</p>
+              
+              {results.error.includes('API Key') && (
+                <div style={{ background: 'rgba(15, 23, 42, 0.5)', padding: '2rem', borderRadius: '16px', textAlign: 'left', display: 'inline-block', maxWidth: '600px', border: '1px solid rgba(255,255,255,0.1)' }}>
+                  <p style={{ color: 'white', fontWeight: 600, marginBottom: '0.75rem', fontSize: '1.1rem' }}>Corrective Actions Required:</p>
+                  <ol style={{ color: 'var(--text-secondary)', paddingLeft: '1.5rem', lineHeight: 1.8, fontSize: '0.95rem' }}>
+                    <li>Locate the <code>.env</code> file in your project root.</li>
+                    <li>Generate a fresh, secure key at <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noreferrer" style={{ color: 'var(--accent-primary)', fontWeight: 600 }}>Google AI Studio</a>.</li>
+                    <li>Update the line: <code>VITE_GEMINI_API_KEY=YOUR_KEY</code></li>
+                    <li>Restart the <code>npm run dev</code> server to apply the changes.</li>
+                  </ol>
+                </div>
+              )}
+            </div>
           )}
 
           {!results.error && results.mode === 'ai' && results.insight && (
