@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Search, MapPin, DollarSign, Clock, Filter, ExternalLink } from 'lucide-react';
+import { Search, MapPin, DollarSign, Clock, Filter, ExternalLink, Award, Shield, BookOpen } from 'lucide-react';
 
 const DUMMY_COURSES = [
   { id: 1, title: 'B.Tech in Computer Science', domain: 'Engineering', location: 'Offline - Hyderabad', fees: '₹4,00,000/yr', duration: '4 Years', institute: 'IIT Hyderabad', link: 'https://iith.ac.in', isFree: false },
@@ -66,30 +66,31 @@ export default function Courses() {
             </button>
           ))}
         </div>
-      </div>
-
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.5rem' }}>
         {filtered.map(course => (
           <div key={course.id} className="glass-panel" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', height: '100%', position: 'relative', overflow: 'hidden' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-              <span style={{ fontSize: '0.75rem', background: 'rgba(255,255,255,0.08)', padding: '0.3rem 0.8rem', borderRadius: '20px', color: 'var(--text-secondary)', fontWeight: 600, border: '1px solid var(--glass-border)' }}>
+              <span style={{ fontSize: '0.7rem', background: 'rgba(255,255,255,0.05)', padding: '0.25rem 0.6rem', borderRadius: '6px', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.5px', fontWeight: 600, border: '1px solid var(--glass-border)' }}>
                 {course.domain}
               </span>
               <span style={{ 
-                fontSize: '0.7rem', 
-                fontWeight: 800, 
-                padding: '0.25rem 0.75rem', 
-                borderRadius: '8px', 
-                background: course.isFree ? 'rgba(16, 185, 129, 0.2)' : 'rgba(14, 165, 233, 0.2)', 
+                fontSize: '0.65rem', 
+                fontWeight: 700, 
+                padding: '0.2rem 0.5rem', 
+                borderRadius: '4px', 
+                background: course.isFree ? 'rgba(16, 185, 129, 0.1)' : 'rgba(59, 130, 246, 0.1)', 
                 color: course.isFree ? 'var(--success)' : 'var(--accent-primary)',
-                border: `1px solid ${course.isFree ? 'var(--success)' : 'var(--accent-primary)'}`
+                border: `1px solid ${course.isFree ? 'rgba(16, 185, 129, 0.2)' : 'rgba(59, 130, 246, 0.2)'}`,
+                letterSpacing: '0.5px'
               }}>
                 {course.isFree ? 'FREE' : 'PAID'}
               </span>
             </div>
             
-            <h3 style={{ fontSize: '1.3rem', marginBottom: '0.25rem', color: 'var(--text-primary)', lineHeight: 1.3 }}>{course.title}</h3>
-            <p style={{ color: 'var(--accent-secondary)', fontWeight: 600, marginBottom: '1.5rem', fontSize: '0.95rem' }}>{course.institute}</p>
+            <h3 style={{ fontSize: '1.2rem', fontWeight: 600, marginBottom: '0.25rem', color: 'var(--text-primary)', lineHeight: 1.4 }}>{course.title}</h3>
+            <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+              <BookOpen size={14} color="var(--accent-primary)" /> {course.institute}
+            </p>
             
             <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>

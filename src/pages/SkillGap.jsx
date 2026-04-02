@@ -269,15 +269,14 @@ export default function SkillGap() {
           )}
 
           {!results.error && results.mode === 'ai' && results.insight && (
-            <div className="glass-panel full-width-panel animate-fade-in" style={{ padding: '2.5rem', marginBottom: '0.5rem', background: 'rgba(139, 92, 246, 0.1)', border: '1px solid var(--accent-primary)', position: 'relative', overflow: 'hidden' }}>
-              <div style={{ position: 'absolute', top: '-20px', right: '-20px', opacity: 0.1, color: 'var(--accent-primary)' }}><Sparkles size={180} /></div>
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.5rem', position: 'relative', zIndex: 1 }}>
-                <div style={{ padding: '1.2rem', background: 'var(--accent-gradient)', borderRadius: '50%', color: 'white', flexShrink: 0 }}>
-                  <Sparkles size={32} />
+            <div className="glass-panel full-width-panel animate-fade-in" style={{ padding: '2.5rem', marginBottom: '1rem', background: 'rgba(59, 130, 246, 0.03)', border: '1px solid rgba(59, 130, 246, 0.15)' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.5rem' }}>
+                <div style={{ padding: '1rem', background: 'rgba(59, 130, 246, 0.1)', borderRadius: '12px', color: 'var(--accent-primary)', flexShrink: 0 }}>
+                  <Award size={32} />
                 </div>
                 <div>
-                  <h2 style={{ fontSize: '1.8rem', color: 'white', marginBottom: '0.75rem', letterSpacing: '0.5px' }}>Executive Market Insight</h2>
-                  <p style={{ fontSize: '1.25rem', color: 'rgba(255,255,255,0.85)', lineHeight: 1.6, margin: 0 }}>
+                  <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: 'white', marginBottom: '0.5rem', letterSpacing: '0.5px' }}>Strategic Market Analysis</h2>
+                  <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: 1.6, margin: 0 }}>
                     {results.insight}
                   </p>
                 </div>
@@ -287,9 +286,9 @@ export default function SkillGap() {
 
           {/* Strengths */}
           <div className="glass-panel" style={{ padding: '2rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem', color: 'var(--success)' }}>
-              <CheckCircle2 size={28} />
-              <h2 style={{ margin: 0, color: 'var(--text-primary)' }}>Validated Competencies</h2>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '1.5rem', color: 'var(--success)' }}>
+              <CheckCircle2 size={24} />
+              <h2 style={{ margin: 0, color: 'var(--text-primary)', fontSize: '1.4rem', fontWeight: 600 }}>Validated Competencies</h2>
             </div>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1.5rem', margin: 0, padding: 0 }}>
               {results.strengths.length > 0 ? results.strengths.map((item, i) => (
@@ -313,9 +312,9 @@ export default function SkillGap() {
 
           {/* Missing Skills */}
           <div className="glass-panel" style={{ padding: '2rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem', color: 'var(--error)' }}>
-              <XCircle size={28} />
-              <h2 style={{ margin: 0, color: 'var(--text-primary)' }}>Critical Missing Proficiencies</h2>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '1.5rem', color: 'var(--error)' }}>
+              <XCircle size={24} />
+              <h2 style={{ margin: 0, color: 'var(--text-primary)', fontSize: '1.4rem', fontWeight: 600 }}>Critical Missing Proficiencies</h2>
             </div>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1.5rem', margin: 0, padding: 0 }}>
               {results.missing.length > 0 ? results.missing.map((item, i) => (
