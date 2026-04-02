@@ -6,14 +6,13 @@ export default function Dashboard() {
   const user = JSON.parse(localStorage.getItem('user') || '{"name": "Student"}');
 
   const tools = [
-    { name: 'What If Simulator', path: '/simulator', icon: Compass, color: '#0ea5e9', desc: 'Simulate your future career path.' },
-    { name: 'Skill Gap', path: '/skills', icon: Target, color: '#10b981', desc: 'Find what you are missing.' },
-    { name: 'Career Netflix', path: '/discover', icon: BookOpen, color: '#06b6d4', desc: 'Swipe and discover your passion.' },
-    { name: 'Find Courses', path: '/courses', icon: BookOpen, color: '#3b82f6', desc: 'Search top courses globally.' },
-    { name: 'Aptitude Test', path: '/test', icon: ClipboardCheck, color: '#ec4899', desc: 'Discover your matching career persona.' },
-    { name: 'Domain Mock Tests', path: '/mock-tests', icon: PenTool, color: '#f43f5e', desc: 'Take 10-question domain specific exams.' },
-
-    { name: 'Voice Guide', path: '/voice', icon: Mic, color: '#8b5cf6', desc: 'Talk to an AI Counselor.' },
+    { name: 'What If Simulator', path: '/simulator', icon: Compass, color: '#3b82f6', desc: 'Simulate and architect your future career path using data.' },
+    { name: 'Skill Gap', path: '/skills', icon: Target, color: '#3b82f6', desc: 'Deep-dive analytical gap detection for modern roles.' },
+    { name: 'Career Netflix', path: '/discover', icon: BookOpen, color: '#3b82f6', desc: 'Discover your passion through structured career exploration.' },
+    { name: 'Find Courses', path: '/courses', icon: BookOpen, color: '#3b82f6', desc: 'Discover premium university-grade certifications.' },
+    { name: 'Aptitude Test', path: '/test', icon: ClipboardCheck, color: '#3b82f6', desc: 'Discover your precise professional persona archetype.' },
+    { name: 'Domain Mock Tests', path: '/mock-tests', icon: PenTool, color: '#3b82f6', desc: 'Rigorous 10-mark technical scenario assessments.' },
+    { name: 'Voice Guide', path: '/voice', icon: Mic, color: '#3b82f6', desc: 'Consult with an AI professional career advisor.' },
   ];
 
   const scrollToFeatures = () => {
@@ -21,69 +20,71 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="animate-fade-in" style={{ paddingBottom: '2rem' }}>
+    <div className="animate-fade-in" style={{ paddingBottom: '4rem' }}>
       
       {/* Hero Section */}
-      <div style={{ height: '85vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', position: 'relative' }}>
-        <h1 style={{ fontSize: '4rem', marginBottom: '1rem', lineHeight: 1.1 }}>
-          Career Forge.ai<br />
-          <span style={{ fontSize: '2.5rem', color: 'var(--text-secondary)' }}>Welcome back, <span style={{ background: 'var(--accent-gradient)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{user.name}</span></span>
+      <div style={{ height: '80vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', position: 'relative' }}>
+        <h1 style={{ fontSize: '4.5rem', fontWeight: 800, marginBottom: '1.5rem', lineHeight: 1.1, color: 'white', letterSpacing: '-0.02em' }}>
+          Career Forge.ai
         </h1>
-        <p style={{ color: 'var(--text-secondary)', fontSize: '1.25rem', maxWidth: '600px', margin: '0 auto 3rem auto', lineHeight: 1.6, fontWeight: 500 }}>
-          "Forge Your Future: AI-Powered Paths to Peak Potential"
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '3rem', justifyContent: 'center' }}>
+          <div style={{ height: '1px', width: '40px', background: 'var(--accent-primary)' }}></div>
+          <span style={{ fontSize: '1.4rem', color: 'var(--text-secondary)', fontWeight: 500 }}>Welcome back, <span style={{ color: 'white' }}>{user.name}</span></span>
+          <div style={{ height: '1px', width: '40px', background: 'var(--accent-primary)' }}></div>
+        </div>
+        
+        <p style={{ color: 'var(--text-secondary)', fontSize: '1.2rem', maxWidth: '650px', margin: '0 auto 4rem auto', lineHeight: 1.7 }}>
+          "Forge Your Future: AI-Powered Paths to Peak Potential" — Your executive suite for career intelligence and strategic growth.
         </p>
         
-        <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-          <button className="btn-secondary" onClick={() => navigate('/test')} style={{ padding: '1rem 2.5rem', fontSize: '1.1rem', borderRadius: '30px' }}>
-            <ClipboardCheck size={20} style={{ marginRight: '10px' }} /> Start Career Test
+        <div style={{ display: 'flex', gap: '1.25rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+          <button className="btn-primary" onClick={() => navigate('/test')}>
+            <ClipboardCheck size={20} /> Start Career Aptitude
           </button>
-          <button className="btn-secondary" onClick={scrollToFeatures} style={{ padding: '1rem 2rem', fontSize: '1.1rem', borderRadius: '30px' }}>
-            Explore Features <ArrowDown style={{ marginLeft: '10px' }} />
+          <button className="btn-secondary" onClick={scrollToFeatures}>
+            Explore Core Modules <ArrowDown size={18} />
           </button>
         </div>
 
-        <div style={{ position: 'absolute', bottom: '2rem', animation: 'bounce 2s infinite' }}>
-          <ArrowDown color="var(--text-secondary)" size={32} />
+        <div style={{ position: 'absolute', bottom: '2rem', animation: 'bounce 2s infinite', color: 'var(--text-muted)' }}>
+          <ArrowDown size={28} />
         </div>
       </div>
 
       <style>{`
         @keyframes bounce {
           0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-          40% { transform: translateY(-20px); }
-          60% { transform: translateY(-10px); }
+          40% { transform: translateY(-10px); }
+          60% { transform: translateY(-5px); }
         }
       `}</style>
 
       {/* Features Section */}
-      <div id="features-section" style={{ paddingTop: '5rem', minHeight: '100vh' }}>
-        <header style={{ marginBottom: '3rem', textAlign: 'center' }}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>Core Modules</h2>
-          <p style={{ color: 'var(--text-secondary)' }}>Select a tool below to get started.</p>
+      <div id="features-section" style={{ paddingTop: '6rem' }}>
+        <header style={{ marginBottom: '4rem', textAlign: 'center' }}>
+          <h2 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '0.75rem', color: 'white' }}>Architecture Intelligence</h2>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem' }}>Data-driven tools to architect your professional future.</p>
         </header>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
           {tools.map((tool) => (
             <div 
               key={tool.name} 
               className="glass-panel" 
-              style={{ padding: '2rem', cursor: 'pointer', transition: 'all 0.3s ease', display: 'flex', flexDirection: 'column' }}
+              style={{ padding: '2.5rem', cursor: 'pointer', display: 'flex', flexDirection: 'column' }}
               onClick={() => navigate(tool.path)}
-              onMouseOver={(e) => { e.currentTarget.style.transform = 'translateY(-5px)'; e.currentTarget.style.boxShadow = `0 10px 30px ${tool.color}33`; }}
-              onMouseOut={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'var(--glass-shadow)'; }}
             >
-              <div style={{ width: '60px', height: '60px', borderRadius: '16px', background: `${tool.color}22`, color: tool.color, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
-                <tool.icon size={32} />
+              <div style={{ width: '56px', height: '56px', borderRadius: '12px', background: 'rgba(59, 130, 246, 0.1)', color: 'var(--accent-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '2rem', border: '1px solid rgba(59, 130, 246, 0.1)' }}>
+                <tool.icon size={28} />
               </div>
-              <h2 style={{ fontSize: '1.5rem', marginBottom: '0.75rem', color: 'var(--text-primary)' }}>{tool.name}</h2>
-              <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem', flex: 1 }}>{tool.desc}</p>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: tool.color, fontWeight: 500, alignSelf: 'flex-start' }}>
-                Explore <ArrowRight size={18} />
+              <h3 style={{ fontSize: '1.4rem', fontWeight: 600, marginBottom: '0.75rem', color: 'white' }}>{tool.name}</h3>
+              <p style={{ color: 'var(--text-secondary)', marginBottom: '2.5rem', flex: 1, lineHeight: 1.6, fontSize: '1.05rem' }}>{tool.desc}</p>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-primary)', fontWeight: 600, fontSize: '1rem' }}>
+                Launch Intelligence <ArrowRight size={18} />
               </div>
             </div>
           ))}
         </div>
-        
       </div>
     </div>
   );

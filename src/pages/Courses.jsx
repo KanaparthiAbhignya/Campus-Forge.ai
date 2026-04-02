@@ -34,42 +34,44 @@ export default function Courses() {
   return (
     <div className="animate-fade-in" style={{ paddingBottom: '2rem' }}>
       <header style={{ marginBottom: '2rem' }}>
-        <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', background: 'var(--accent-gradient)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+        <h1 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '0.5rem', color: 'white' }}>
           Course Discovery
         </h1>
-        <p style={{ color: 'var(--text-secondary)' }}>Find courses that align with your career goals.</p>
+        <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem' }}>Find world-class courses designed for your career trajectory.</p>
       </header>
 
-      <div className="glass-panel" style={{ padding: '1.5rem', marginBottom: '2rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+      <div className="glass-panel" style={{ padding: '1.25rem', marginBottom: '2.5rem', display: 'flex', gap: '1.25rem', flexWrap: 'wrap', alignItems: 'center' }}>
         <div style={{ flex: '1 1 300px', position: 'relative' }}>
-          <Search style={{ position: 'absolute', left: '16px', top: '14px', color: 'var(--text-secondary)' }} size={20} />
+          <Search style={{ position: 'absolute', left: '16px', top: '12px', color: 'var(--text-secondary)' }} size={18} />
           <input 
             type="text" 
             className="form-input" 
-            style={{ paddingLeft: '3rem' }} 
-            placeholder="Search courses..." 
+            style={{ paddingLeft: '3rem', fontSize: '1rem' }} 
+            placeholder="Search courses, certificates, and degrees..." 
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
         
-        <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', overflowX: 'auto', paddingBottom: '0.5rem' }}>
-          <Filter color="var(--text-secondary)" size={20} style={{ flexShrink: 0 }} />
+        <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', overflowX: 'auto', paddingBottom: '0.25rem' }}>
+          <Filter color="var(--text-secondary)" size={18} style={{ marginRight: '0.5rem' }} />
           {domains.map(domain => (
             <button 
               key={domain}
               onClick={() => setFilterDomain(domain)}
               className={filterDomain === domain ? 'btn-primary' : 'btn-secondary'}
-              style={{ padding: '0.5rem 1rem', fontSize: '0.9rem', whiteSpace: 'nowrap' }}
+              style={{ padding: '0.5rem 1.25rem', fontSize: '0.85rem', whiteSpace: 'nowrap' }}
             >
               {domain}
             </button>
           ))}
         </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.5rem' }}>
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '2rem' }}>
         {filtered.map(course => (
-          <div key={course.id} className="glass-panel" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', height: '100%', position: 'relative', overflow: 'hidden' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+          <div key={course.id} className="glass-panel" style={{ padding: '1.75rem', display: 'flex', flexDirection: 'column', height: '100%', position: 'relative' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
               <span style={{ fontSize: '0.7rem', background: 'rgba(255,255,255,0.05)', padding: '0.25rem 0.6rem', borderRadius: '6px', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.5px', fontWeight: 600, border: '1px solid var(--glass-border)' }}>
                 {course.domain}
               </span>
@@ -87,36 +89,36 @@ export default function Courses() {
               </span>
             </div>
             
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 600, marginBottom: '0.25rem', color: 'var(--text-primary)', lineHeight: 1.4 }}>{course.title}</h3>
-            <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '0.4rem', color: 'white', lineHeight: 1.4 }}>{course.title}</h3>
+            <p style={{ color: 'var(--text-secondary)', marginBottom: '1.75rem', fontSize: '0.95rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <BookOpen size={14} color="var(--accent-primary)" /> {course.institute}
             </p>
             
-            <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
+            <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: '0.85rem', marginBottom: '1.75rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
                 <MapPin size={16} /> <span>{course.location}</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-primary)', fontSize: '0.95rem', fontWeight: 600 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'white', fontSize: '1rem', fontWeight: 500 }}>
                 <DollarSign size={16} color="var(--success)" /> <span>{course.fees}</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
                 <Clock size={16} /> <span>{course.duration}</span>
               </div>
             </div>
             
-            <button onClick={() => window.open(course.link, '_blank')} className="btn-primary" style={{ marginTop: '1.5rem', width: '100%', gap: '0.5rem' }}>
+            <button onClick={() => window.open(course.link, '_blank')} className="btn-primary" style={{ width: '100%', gap: '0.6rem' }}>
               Enroll Now <ExternalLink size={16} />
             </button>
           </div>
         ))}
+        
         {filtered.length === 0 && (
-          <div style={{ padding: '5rem', textAlign: 'center', gridColumn: '1 / -1', color: 'var(--text-secondary)', background: 'rgba(255,255,255,0.02)', borderRadius: '20px', border: '1px dashed var(--glass-border)' }}>
-            <p style={{ fontSize: '1.2rem', marginBottom: '0.5rem' }}>No courses found matching your criteria.</p>
-            <p style={{ fontSize: '0.9rem' }}>Try adjusting your filters or search terms.</p>
+          <div style={{ padding: '6rem 2rem', textAlign: 'center', gridColumn: '1 / -1', color: 'var(--text-secondary)', background: 'rgba(255,255,255,0.02)', borderRadius: '16px', border: '1px dashed var(--glass-border)' }}>
+            <h3 style={{ color: 'white', fontSize: '1.5rem', marginBottom: '0.75rem' }}>No results found</h3>
+            <p>Try refining your search terms or selecting a different category.</p>
           </div>
         )}
       </div>
     </div>
   );
 }
-
