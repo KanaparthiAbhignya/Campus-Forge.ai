@@ -58,20 +58,36 @@ function InteractiveShape({ position, color, speed, distort, scale=1, type="icos
 
 export default function Background3D() {
   return (
-    <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: -1, pointerEvents: 'none', opacity: 0.8 }}>
-      <Canvas eventSource={document.getElementById('root')}>
-        <ambientLight intensity={1.5} />
-        <directionalLight position={[10, 10, 5]} intensity={2.5} color="#ffffff" />
-        <pointLight position={[-10, -10, -10]} intensity={3} color="#f59e0b" />
-        <pointLight position={[10, -10, 10]} intensity={3} color="#ec4899" />
-        
-        {/* Vibrant Colorful Floating Physics Objects Mapping To Parallax */}
-        <InteractiveShape position={[-6, 3, -2]} color="#0ea5e9" speed={1.2} distort={0.5} type="icosahedron" scale={1.2} />
-        <InteractiveShape position={[7, -3, -4]} color="#ec4899" speed={0.8} distort={0.4} type="torus" scale={1.3} />
-        <InteractiveShape position={[-7, -4, -5]} color="#10b981" speed={1.5} distort={0.6} type="sphere" scale={1.1} />
-        <InteractiveShape position={[8, 5, -8]} color="#f59e0b" speed={1} distort={0.3} type="box" scale={1.2} />
-        <InteractiveShape position={[0, -7, -4]} color="#a855f7" speed={1.8} distort={0.7} type="icosahedron" scale={1.5} />
-      </Canvas>
+    <div style={{ 
+      position: 'fixed', 
+      top: 0, 
+      left: 0, 
+      width: '100vw', 
+      height: '100vh', 
+      zIndex: -1, 
+      pointerEvents: 'none', 
+      overflow: 'hidden',
+      background: '#020617' // Deep dark base to match the nebula
+    }}>
+      <iframe 
+        src='https://my.spline.design/particlenebula-4wjabM6b4V2Kf6ZWg8sJotdq/' 
+        frameBorder='0' 
+        width='100%' 
+        height='100%'
+        style={{ border: 'none' }}
+        title="Spline Particle Nebula"
+      ></iframe>
+      
+      {/* Subtle Dark Overlay to ensure UI readability */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        background: 'radial-gradient(circle at center, rgba(15, 23, 42, 0.2) 0%, rgba(2, 6, 23, 0.6) 100%)',
+        pointerEvents: 'none'
+      }}></div>
     </div>
   );
 }
