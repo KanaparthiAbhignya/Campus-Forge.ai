@@ -278,7 +278,8 @@ export default function CareerTest() {
       </header>
 
       {!showResults ? (
-        <div className="glass-panel" style={{ padding: '2.5rem', flex: 1, display: 'flex', flexDirection: 'column', maxWidth: '800px', margin: '0 auto', width: '100%', position: 'relative', overflow: 'hidden' }}>
+        <div className="glass-panel" style={{ padding: '2.5rem', flex: 1, display: 'flex', flexDirection: 'column', maxWidth: '800px', margin: '0 auto', width: '100%', position: 'relative', overflow: 'hidden', background: 'var(--glass-bg)' }}>
+
           
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem', color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
             <span>Question {currentStep + 1} of {QA_DATA.length}</span>
@@ -301,8 +302,8 @@ export default function CareerTest() {
                   style={{
                     padding: '1.25rem 1.5rem',
                     borderRadius: '16px',
-                    border: isSelected ? '2px solid var(--accent-primary)' : '1px solid var(--glass-border)',
-                    background: isSelected ? 'rgba(14, 165, 233, 0.15)' : 'rgba(0,0,0,0.2)',
+                    border: isSelected ? '2px solid var(--accent-primary)' : '1px solid rgba(255,255,255,0.1)',
+                    background: isSelected ? 'rgba(59, 130, 246, 0.2)' : 'rgba(15, 23, 42, 0.4)',
                     color: 'var(--text-primary)',
                     textAlign: 'left',
                     fontSize: '1.1rem',
@@ -312,8 +313,8 @@ export default function CareerTest() {
                     alignItems: 'center',
                     justifyContent: 'space-between'
                   }}
-                  onMouseOver={(e) => { if(!isSelected) e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; }}
-                  onMouseOut={(e) => { if(!isSelected) e.currentTarget.style.background = 'rgba(0,0,0,0.2)'; }}
+                  onMouseOver={(e) => { if(!isSelected) e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; }}
+                  onMouseOut={(e) => { if(!isSelected) e.currentTarget.style.background = 'rgba(15, 23, 42, 0.4)'; }}
                 >
                   <span>{option.text}</span>
                   {isSelected && <Star size={20} color="var(--accent-primary)" fill="var(--accent-primary)" />}
@@ -326,9 +327,9 @@ export default function CareerTest() {
         <div className="glass-panel animate-fade-in" style={{ padding: '3rem', maxWidth: '1000px', margin: '0 auto', width: '100%', textAlign: 'center' }}>
           <Trophy size={64} color="var(--success)" style={{ margin: '0 auto 1.5rem auto' }} />
           <h2 style={{ fontSize: '1.5rem', color: 'var(--text-secondary)', margin: 0 }}>Your Dominant Category is:</h2>
-          <h1 style={{ fontSize: '3.5rem', marginBottom: '1.5rem', color: 'var(--text-primary)' }}>{CATEGORY_MAP[resultCat].title}</h1>
+          <h1 style={{ fontSize: '3.5rem', marginBottom: '1.5rem', color: 'white', fontWeight: 800 }}>{CATEGORY_MAP[resultCat].title}</h1>
           
-          <div style={{ background: 'rgba(0,0,0,0.2)', padding: '2rem', borderRadius: '16px', marginBottom: '3.5rem', border: '1px dashed var(--accent-primary)' }}>
+          <div style={{ background: 'rgba(15, 23, 42, 0.5)', padding: '2rem', borderRadius: '16px', marginBottom: '3.5rem', border: '1px dashed rgba(59, 130, 246, 0.4)' }}>
             <p style={{ fontSize: '1.2rem', lineHeight: 1.6, color: 'var(--text-primary)', margin: 0 }}>
               "{CATEGORY_MAP[resultCat].desc}"
             </p>
@@ -340,7 +341,7 @@ export default function CareerTest() {
           
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', marginBottom: '4rem', textAlign: 'left' }}>
             {CATEGORY_MAP[resultCat].careers.map((career, i) => (
-              <div key={i} style={{ padding: '2.5rem', background: 'rgba(0,0,0,0.3)', border: '1px solid var(--glass-border)', borderRadius: '20px', transition: 'all 0.3s ease' }}
+              <div key={i} className="glass-panel" style={{ padding: '2.5rem', transition: 'all 0.3s ease' }}
                 onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-5px)'}
                 onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
               >
@@ -368,7 +369,7 @@ export default function CareerTest() {
                   </div>
                 </div>
 
-                <div style={{ background: 'rgba(0,0,0,0.2)', padding: '1.5rem', borderRadius: '12px' }}>
+                <div style={{ background: 'rgba(15, 23, 42, 0.4)', padding: '1.5rem', borderRadius: '12px', border: '1px solid var(--glass-border)' }}>
                   <h4 style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.1rem' }}>
                     <Target size={18} color="var(--success)" /> Step-by-Step Execution Roadmap
                   </h4>

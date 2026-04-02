@@ -7,13 +7,13 @@
   --accent-secondary: #0ea5e9;
   --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
   
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1; /* Significantly brighter for readability */
+  --text-muted: #94a3b8;
   
-  --glass-bg: rgba(15, 23, 42, 0.7); /* Darker, more solid glass */
-  --glass-border: rgba(255, 255, 255, 0.08); /* Ultra-thin border */
-  --glass-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.5);
+  --glass-bg: rgba(10, 15, 28, 0.82); /* Darker and more opaque for better separation */
+  --glass-border: rgba(255, 255, 255, 0.12); /* Slightly more prominent border */
+  --glass-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.7);
   
   --error: #ef4444;
   --success: #10b981;
@@ -38,6 +38,12 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+h1, h2, h3 {
+  color: var(--text-primary);
+  letter-spacing: -0.0125em;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Stronger lift for 3D background */
 }
 
 /* Glassmorphism 2.0 - Clean & Readable */

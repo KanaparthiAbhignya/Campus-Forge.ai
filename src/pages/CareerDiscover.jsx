@@ -134,9 +134,9 @@ export default function CareerDiscover() {
       {viewState === 'swipe' && (
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem' }}>
           {currentIndex >= careers.length ? (
-            <div className="glass-panel animate-fade-in" style={{ padding: '4rem 2rem', textAlign: 'center', width: '100%', maxWidth: '450px' }}>
+            <div className="glass-panel animate-fade-in" style={{ padding: '4rem 2rem', textAlign: 'center', width: '100%', maxWidth: '450px', background: 'var(--glass-bg)' }}>
               <Star size={64} color="var(--accent-primary)" style={{ margin: '0 auto 1.5rem auto' }} />
-              <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>You're all caught up!</h2>
+              <h2 style={{ fontSize: '2rem', marginBottom: '1rem', color: 'white' }}>You're all caught up!</h2>
               <p style={{ color: 'var(--text-secondary)' }}>You saved {savedCareers.length} career paths.</p>
               <button className="btn-primary" style={{ marginTop: '2rem', width: '100%' }} onClick={() => setViewState('saved')}>View Saved Paths</button>
               <button className="btn-secondary" style={{ marginTop: '1rem', width: '100%', border: 'none' }} onClick={() => setCurrentIndex(0)}>Restart Swipe</button>
@@ -158,21 +158,21 @@ export default function CareerDiscover() {
                   <Briefcase size={80} color="white" opacity={0.8} />
                 </div>
                 
-                <div style={{ padding: '0 2rem 1rem 2rem', textAlign: 'center' }}>
-                  <span style={{ background: 'rgba(255,255,255,0.1)', padding: '0.4rem 1rem', borderRadius: '20px', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+                <div style={{ padding: '0 2rem 2.5rem 2rem', textAlign: 'center' }}>
+                  <span style={{ background: 'rgba(255,255,255,0.05)', padding: '0.4rem 1rem', borderRadius: '20px', fontSize: '0.85rem', color: 'var(--text-secondary)', border: '1px solid var(--glass-border)' }}>
                     {currentCareer.domain}
                   </span>
-                  <h2 style={{ fontSize: '2rem', margin: '1rem 0 0.5rem 0', color: 'var(--text-primary)' }}>{currentCareer.title}</h2>
-                  <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6 }}>{currentCareer.desc}</p>
+                  <h2 style={{ fontSize: '2.2rem', fontWeight: 700, margin: '1rem 0 0.75rem 0', color: 'white' }}>{currentCareer.title}</h2>
+                  <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6, fontSize: '1.05rem' }}>{currentCareer.desc}</p>
                   
-                  <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', marginTop: '2rem' }}>
+                  <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', marginTop: '2.5rem' }}>
                     <div style={{ textAlign: 'center' }}>
-                      <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginBottom: '0.2rem' }}>Salary</p>
-                      <p style={{ fontWeight: 600, color: 'var(--success)' }}>{currentCareer.salary}</p>
+                      <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginBottom: '0.3rem', textTransform: 'uppercase', letterSpacing: '1px' }}>Avg. Salary</p>
+                      <p style={{ fontWeight: 700, color: 'var(--success)', fontSize: '1.2rem' }}>{currentCareer.salary}</p>
                     </div>
                     <div style={{ textAlign: 'center' }}>
-                      <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginBottom: '0.2rem' }}>Demand</p>
-                      <p style={{ fontWeight: 600, color: 'var(--warning)' }}>{currentCareer.demand}</p>
+                      <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginBottom: '0.3rem', textTransform: 'uppercase', letterSpacing: '1px' }}>Market Demand</p>
+                      <p style={{ fontWeight: 700, color: 'var(--warning)', fontSize: '1.2rem' }}>{currentCareer.demand}</p>
                     </div>
                   </div>
                 </div>
